@@ -12,7 +12,7 @@ class Controller {
     fun greeting(@RequestBody input: Input): ResponseEntity<Response> {
         val goodResponse = ResponseEntity.ok().body(Response("Good request"))
         val badResponse = ResponseEntity.badRequest().body(Response("Damn BUG Here!"))
-        val containOnlyDigits = input.numbers.chars().allMatch(Character::isDigit)
+        val containOnlyDigits = input.numbers.chars().allMatch(Character::isDigit) && input.numbers.isNotBlank()
 
         return if (containOnlyDigits) goodResponse else badResponse
     }
