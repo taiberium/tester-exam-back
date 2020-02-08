@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class Controller {
 
-    @PostMapping("/data")
+    @PostMapping("/api/data")
     fun greeting(@RequestBody input: Input): ResponseEntity<Response> {
         val goodResponse = ResponseEntity.ok().body(Response("Good request"))
         val badResponse = ResponseEntity.badRequest().body(Response("Damn BUG Here!"))
